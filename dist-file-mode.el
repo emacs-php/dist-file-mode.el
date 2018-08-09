@@ -25,7 +25,7 @@
 
 ;;; Commentary:
 
-;; There are often files whose file name ends with `.dist'.
+;; There are sometimes files whose file name ends with `.dist'.
 ;; (The suffix means "distributed".)
 ;;
 ;; For example: `phpunit.xml.dist', `phpstan.neon.dist'
