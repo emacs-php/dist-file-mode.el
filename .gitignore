@@ -1,0 +1,6 @@
+*.elc
+*.rej
+/.cask
+/flycheck*
+/*-autoloads.el
+/vendor
