@@ -62,7 +62,7 @@
         (funcall mode)))))
 
 ;;;###autoload
-(add-to-list 'auto-mode-alist '("\\.dist" . dist-file-mode))
+(add-to-list 'auto-mode-alist '("\\.dist\\'" . dist-file-mode))
 
 (provide 'dist-file-mode)
 ;;; dist-file-mode.el ends here
