@@ -7,7 +7,7 @@
 ;; Version: 0.9.0
 ;; Keywords: files, convenience
 ;; Homepage: https://github.com/emacs-php/dist-file-mode.el
-;; Package-Requires: ((emacs "24") (cl-lib "0.5") (s "1.9.0"))
+;; Package-Requires: ((emacs "26"))
 ;; License: GPL-3.0-or-later
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -33,18 +33,19 @@
 ;; This command removes `.dist' from file name and choises the appropriate major mode.
 
 ;;; Code:
+(eval-when-compile
+  (require 'cl-lib))
 (require 'rx)
-(require 's)
 
 (defvar dist-file-suffixes
   '(".dist"))
 
 (defun dist-file-canonical-filename (filename)
-  "Return `FILENAME' without `.dist' suffix."
+  "Return FILENAME without `.dist' suffix."
   (cl-loop for suffix in dist-file-suffixes
-           if (s-ends-with? suffix filename)
+           if (string-suffix-p suffix filename)
            return (replace-regexp-in-string
-                   (eval `(rx ,suffix string-end)) "" buffer-file-name)
+                   (rx-to-string `(: ,suffix string-end)) "" filename)
            finally return filename))
 
 (defun dist-file-match-major-mode (filename)
