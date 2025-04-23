@@ -1,3 +1,5 @@
+;; -*- mode: eask; lexical-binding: t -*-
+
 (package "dist-file-mode"
          "0.9.0"
          "Dispatch major mode for *.dist files")
